@@ -1,0 +1,15 @@
+CXX=clang++ $(CXXFLAGS)
+DEBUG=-Wall -g
+CXXFLAGS=-Wall -O2 -std=c++11
+OFILES=test.o
+DOXYCALL =doxygen
+
+.SUFFIXES: .o .cpp
+
+stuff: $(OFILES)
+    $(CXX) $(OFILES)
+    $(DOXYCALL)
+
+clean:
+    -rm -f *.o *~ outputfile
+test.o: test.cpp
